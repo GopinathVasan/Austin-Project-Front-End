@@ -31,7 +31,11 @@ class Navbar extends Component {
               </li>
             );
           })}
-          <button> Client Login </button>
+          <li>
+            <Link to="/login" className="nav-links">
+              Client Login
+            </Link>
+          </li>
         </ul>
       </nav>
     );
