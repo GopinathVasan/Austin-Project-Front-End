@@ -11,7 +11,7 @@ function Contact() {
         cName="hero-mid"
         heroImg={AboutImg}
         title="Contact"
-        text="chooese the wise company"
+        text="choose the wise company"
         btnClass="hide"
       />
       <Footer />
