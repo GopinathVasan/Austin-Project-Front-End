@@ -2,12 +2,23 @@
   margin: 4rem 6rem;
   text-align: start;
 }
+<<<<<<< HEAD
+.about-container
+  h1{
+    padding-bottom: 2rem;
+}
+  @media
+  screen
+  and
+  (amx-width:850px) {
+=======
 
 .about-container h1 {
   padding-bottom: 2rem;
 }
 
 @media screen and (max-width: 850px) {
+>>>>>>> main
   .about-container {
     margin: 4rem 2rem;
   }

@@ -11,14 +11,14 @@ const Footer = () => {
           <a href="/">
             <i className="fab fa-facebook-square"></i>
           </a>
-          <a href="/">
+          <a href="https://www.instagram.com/austinpartnership1?utm_source=qr&igsh=MTdmYjk3aXk0YW9xeA==">
             <i className="fab fa-instagram-square"></i>
           </a>
-          <a href="/">
-            <i className="fab fa-behance-square"></i>
+          <a href="https://www.youtube.com/@businessmindedwolf730">
+          <i class="fa-brands fa-square-youtube"></i>
           </a>
           <a href="/">
-            <i className="fab fa-twitter-square"></i>
+          <i class="fa-brands fa-square-x-twitter"></i>
           </a>
         </div>
       </div>
