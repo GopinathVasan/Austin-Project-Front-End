@@ -18,8 +18,7 @@ function ContactForm() {
         <button type="submit" className="btn">submit</button>
       </form>
     </div>
-</section
->
+</section>
     )
 }
 export default ContactForm;
