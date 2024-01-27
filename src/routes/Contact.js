@@ -1,19 +1,15 @@
 import Hero from "../Components/Hero";
 import Navbar from "../Components/Navbar";
-import AboutImg from "../assets/4.jpg";
+import AboutImg from "../assets/6.jpg";
 import Footer from "../Components/Footer";
+import ContactForm from "../Components/ContactForm";
 
 function Contact() {
   return (
     <>
       <Navbar />
-      <Hero
-        cName="hero-mid"
-        heroImg={AboutImg}
-        title="Contact"
-        text="chooese the wise company"
-        btnClass="hide"
-      />
+      
+      <ContactForm />
       <Footer />
     </>
   );

@@ -3,9 +3,9 @@
   text-align: start;
 }
 .about-container
-  h1(
+  h1{
     padding-bottom: 2rem;
-)
+}
   @media
   screen
   and

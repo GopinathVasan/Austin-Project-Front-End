@@ -12,7 +12,7 @@ function About() {
         cName="hero-mid"
         heroImg={AboutImg}
         title="About Us"
-        text="chooese the wise company"
+        text=""
         btnClass="hide"
       />
       <AboutUs />
