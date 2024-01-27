@@ -11,7 +11,7 @@ function Service() {
         cName="hero-mid"
         heroImg={AboutImg}
         title="Overview"
-        text="chooese the wise company"
+        text="choose the wise company"
         btnClass="hide"
       />
       <Footer />
