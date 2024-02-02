@@ -2,6 +2,7 @@ import "./NavbarStyle.css";
 import react, { Component } from "react";
 import { MenuItems } from "./MenuItems";
 import { Link } from "react-router-dom";
+// import Dropdown from "./Dropdown";
 
 class Navbar extends Component {
   state = {
@@ -33,8 +34,9 @@ class Navbar extends Component {
           })}
           <li>
             <Link to="/login" className="nav-links">
-              Client Login
+              Login <i class="fa-solid fa-caret-down"></i>
             </Link>
+            {/* {dropdown && <Dropdown />} */}
           </li>
         </ul>
       </nav>

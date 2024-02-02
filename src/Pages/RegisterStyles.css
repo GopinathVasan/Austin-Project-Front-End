@@ -1,0 +1,36 @@
+ .register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140vh;
+    background-image: url('../assets/6.jpg');
+    background-size: 100%;
+    background-position: center;
+    
+  } 
+  
+  .register-form {
+      background-color: white;
+      padding: 0px 60px;
+      border-radius: 10px;
+  }
+  
+  .signin-form h1{
+      color: rgb(77, 1, 77);
+      text-align: center;
+  }
+  
+  .register-btn{
+      width: 100%;
+      height: 50px;
+      padding: 10px;
+      border: none;
+      background-color: rebeccapurple;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 15px;
+      margin-bottom: 30px;
+  }

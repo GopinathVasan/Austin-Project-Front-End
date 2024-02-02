@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './clientLoginStyle.css';
 import './LanguageSelection';
+import Navbar from "../Components/Navbar";
+import Footer from '../Components/Footer';
 
 const ClientLogin = () => {
   const [username, setUsername] = useState('');
@@ -18,6 +20,8 @@ const ClientLogin = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="client-login-container">
       {/* <h1>Austin Partnership</h1> */}
       <h2>Welcome to Austin Partnership</h2>
@@ -61,6 +65,8 @@ const ClientLogin = () => {
       </div>
       </form>
     </div>
+    <Footer />
+    </>
   );
 };
 
