@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './clientLoginStyle.css';
 import './LanguageSelection';
+import Navbar from "../Components/Navbar";
+import Footer from '../Components/Footer';
 
 const ClientLogin = () => {
   const [username, setUsername] = useState('');
@@ -18,12 +20,16 @@ const ClientLogin = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="client-login-container">
-      <h1>Austin Partnership</h1>
-      <form onSubmit={handleSubmit}>
+      {/* <h1>Austin Partnership</h1> */}
+      <h2>Welcome to Austin Partnership</h2>
+      <form className='login-form' onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="username">Welcome to Austin Partnership Continue To Login</label>
+          <label className='login-label' htmlFor="username">Email-ID:</label>
           <input
+            className='login-input'
             type="text"
             id="username"
             value={username}
@@ -34,8 +40,9 @@ const ClientLogin = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="password">Password:</label>
+          <label className='login-label' htmlFor="password">Password:</label>
           <input
+          className='login-input'
             type="password"
             id="password"
             value={password}
@@ -45,20 +52,21 @@ const ClientLogin = () => {
           />
         </div>
 
-        <button type="submit">Sign In</button>
-      </form>
-      <div className="Remember me">
-        <a href="#">Remember Me</a>
-      </div>
+        <button className='login-btn' type="submit">Sign In</button>
+      {/* <div className="Remember me">
+        <a className='login-a' href="#">Remember Me</a>
+      </div> */}
       
       <div className="forgot-password">
-        <a href="#">Forgot password?</a>
+        <a className='login-a' href="#">Forgot password?</a>
       </div>
-       <div className="Contact-Support">
-        <a href="#">Contact Technical Support</a>
+       <div className="login-Support">
+        <a className='login-a' href="#">Contact Technical Support</a>
       </div>
-      
+      </form>
     </div>
+    <Footer />
+    </>
   );
 };
 

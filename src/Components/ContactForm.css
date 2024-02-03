@@ -1,107 +1,107 @@
-  section{
-    background-image: url('../assets/6.jpg');
-    /*background-color: #333  ;*/
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
+section{
+  background-image: url('../assets/2.jpg');
+  /*background-color: #333  ;*/
+  background-position: fill;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110vh;
+  width: 100%;
 
+}
+.container {
+  position: relative;
+  display: flex;
+  width: 420px;
+  height: 520px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  background: transparent;
+  border-radius: 10px;
+  padding: 30px 40px;
+  align-items: center;
+  margin: 30px 0;
+  justify-content: center;
+}
+
+.container h2 {
+  font-size: 30px;
+  font-family: system-ui;
+  font-variant: small-caps;
+  text-align: center;
+}
+
+.container .input-box {
+  position: relative;
+  width: 340px;
+  margin: 30px 0px;
+  border-bottom: 2px solid #ffffff;
+}
+.contact-input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  /*border: 2px solid rgb(255, 255, 255, 0.2);*/
+  border-radius: 5px;
+  font-size: 1em;
+  font-family: system-ui;
+  color: #ffffff;
+  padding: 0 35px 0 5px;
+}
+.input-box ::placeholder{
+  color: rgb(255, 255, 255);
+}
+/*.input-box .i{
+  position: absolute;
+  right: 8px;
+  color: #fff;
+  font-size: 1.2em;
+  top: 20px;
+}*/
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+ .container .message-box {
+  right: 20px;
+  top: 50%;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: system-ui;
+  padding: 20px 45px 20px 20px;
+  margin: 10px 0;
+ }
+.container .contact-btn {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #FFFFFF;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  background-color: transparent;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.2s;
+}
+.container .contact-btn:hover{
+  color: #ffffff;
+  background-color: #000000;
+}
+@media all and (max-width:30em){
+  .btn{
+      display: block;
+      margin: 0.4em auto;
   }
-  .container {
-    position: relative;
-    display: flex;
-    width: 420px;
-    height: 450px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    color: #ffffff;
-    background: transparent;
-    border-radius: 10px;
-    padding: 30px 40px;
-    align-items: center;
-    margin: 30px 0;
   }
-  
-  .container h2 {
-    font-size: 30px;
-    font-family: system-ui;
-    font-variant: small-caps;
-    text-align: center;
-  }
-  
-  .container .input-box {
-    position: relative;
-    width: 310px;
-    margin: 30px 0px;
-    border-bottom: 2px solid #ffffff;
-  }
-  .input-box input {
-    width: 100%;
-    height: 50px;
-    background: transparent;
-    border: none;
-    outline: none;
-    /*border: 2px solid rgb(255, 255, 255, 0.2);*/
-    border-radius: 5px;
-    font-size: 1em;
-    font-family: system-ui;
-    color: #ffffff;
-    padding: 0 35px 0 5px;
-  }
-  .input-box ::placeholder{
-    color: rgb(255, 255, 255);
-  }
-  /*.input-box .i{
-    position: absolute;
-    right: 8px;
-    color: #fff;
-    font-size: 1.2em;
-    top: 20px;
-  }*/
-  .input-box i {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-  }
-   .container .message-control {
-    right: 20px;
-    top: 50%;
-    font-size: 20px;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    font-size: 20px;
-    font-family: system-ui;
-    padding: 20px 45px 20px 20px;
-    margin-bottom: 1rem;
-   }
-  .container .btn {
-    display: inline-block;
-    padding: 0.35em 1.2em;
-    border: 0.1em solid #FFFFFF;
-    margin: 0 0.3em 0.3em 0;
-    border-radius: 0.12em;
-    background-color: transparent;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-weight: 300;
-    color: #ffffff;
-    text-align: center;
-    transition: all 0.2s;
-  }
-  .container .btn:hover{
-    color: #ffffff;
-    background-color: #000000;
-  }
-  @media all and (max-width:30em){
-    .btn{
-        display: block;
-        margin: 0.4em auto;
-    }
-    }
-  

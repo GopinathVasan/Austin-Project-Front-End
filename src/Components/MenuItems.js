@@ -27,5 +27,6 @@ export const MenuItems = [
     title: "Client Login",
     url: "/login",
     cName: "nav-links-mobile",
+    icon: "fa-solid fa-address-book",
   },
 ];

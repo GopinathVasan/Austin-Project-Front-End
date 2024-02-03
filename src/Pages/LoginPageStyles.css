@@ -1,0 +1,19 @@
+.loginpage-container {
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+    /*margin-top: 100px;*/
+    background-image: url('../assets/9.png');
+    background-size: cover;
+    min-height: 50vh;
+    color: #000000;
+}
+.loginpage-container h2{
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+.loginpage-container .loginpage-links {
+    color: rgb(0, 0, 0);
+    display: block;
+}
