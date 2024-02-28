@@ -11,8 +11,8 @@ const ClientLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Here you can add the logic to send the signin data to your backend or handle it as needed
-    console.log('Signin data:', { username, password });
+    // Here you can add the logic to send the sign data to your backend or handle it as needed
+    console.log('Signing data:', { username, password });
 
     // Optionally, you can reset the form fields
     setUsername('');
