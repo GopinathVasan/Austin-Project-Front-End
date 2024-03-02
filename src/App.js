@@ -8,6 +8,8 @@ import Login from "./routes/Login";
 import LoginPage from "./Pages/LoginPage";
 import ClientLogin from "./Pages/ClientLogin";
 import Register from "./Pages/Register";
+import OurPeople from "./routes/OurPeople";
+import Portfolio from "./footer/PortFolio";
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="/loginpage" element={<LoginPage />} />
         <Route path="/clientlogin" element={<ClientLogin />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/ourpeople" element={<OurPeople />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
     </div>
   );

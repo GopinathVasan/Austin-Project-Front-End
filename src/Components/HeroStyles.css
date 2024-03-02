@@ -70,6 +70,11 @@ img {
     padding: 0.6rem 1.1rem;
     border-radius: 6px;
     font-size: 1rem;
-    background: red;
+    /* background: #01959a; */
+    background-color: transparent;
+    border: 0.5px solid;
+  }
+  .show:hover{
+    background-color: #01959a;
   }
 }

@@ -1,0 +1,83 @@
+.meetus-card{
+/*flex-wrap: wrap;
+  flex-direction: column;
+  margin-right: -0.75rem;
+  margin-left: -0.75rem; */
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.125);   
+  /* filter: drop-shadow(0 30px 10px #808080); */
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content:center;
+  text-align: center;
+  width: 350px;
+  height: 350px;
+  gap: 1.5rem;
+}
+.meetus{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 20px ;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+.meetus-img{
+  border-radius: 50%;
+	overflow: hidden;
+	width: 150px;
+	height: 150px;
+	position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+  transform: scale(var(--img-scale));
+}
+.meetus-info{
+  display: flex;
+   justify-content: center;
+   flex-direction: column;
+   font-family: "Bebas Neue";
+   width: 300px ;
+   font-family: "Bebas Neue";
+}
+.people-title {
+  font-size: 2.5rem;
+  color: #000000;
+  padding: 40px;
+}
+.people-item{
+  display:grid;
+  justify-content: center;
+  align-items: center;
+}
+.meetus-name{
+  margin: 0 0 18px 0;
+  font-family: "Bebas Neue";
+  font-size: 1.9rem;
+  color: var(--title-color);
+  transition: color 0.3s ease-out;
+}
+.meetus-card:has(:hover, :focus) {
+  --img-scale: 1.1;
+  --title-color: #ffffff;
+  --background-color:#000000;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  background-color: #01959a;
+  filter: drop-shadow(0 30px 10px #808080);
+}
+.meetus-title{
+  font-family: "Bebas Neue";
+  font-size: 1.5rem;
+}
+.meetus-location{
+  font-family: "Bebas Neue";
+  font-variant-caps: small-caps;
+  font-size: 1.4rem;
+}
+.meetus-mail{
+  font-family:"Bebas Neue";
+}

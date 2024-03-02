@@ -38,7 +38,7 @@ const ContactForm = () => {
     <i class="fa-regular fa-envelope"></i>
         <input className='contact-input' type="email" id="inputEmail3" placeholder='Email' name="user_email" />
     </div>
-    <textarea className="message-box" rows="4" placeholder='Message'></textarea>
+    <textarea className="message-box" rows="2" placeholder='Message'></textarea>
     <button className='contact-btn' type="submit" >submit</button>
   </form>
 </div>
