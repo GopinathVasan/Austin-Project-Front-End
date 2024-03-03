@@ -1,6 +1,5 @@
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import Data from "../footer/data";
 import Ourpeople from "../assets/0.jpg";
 import Hero from "../Components/Hero";
 

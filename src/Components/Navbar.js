@@ -1,47 +1,94 @@
-import "./NavbarStyle.css";
-import react, { Component } from "react";
-import { MenuItems } from "./MenuItems";
-import { Link } from "react-router-dom";
-// import Dropdown from "./Dropdown";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './NavbarStyle.css';
+import Dropdown from './Dropdown';
 
-class Navbar extends Component {
-  state = {
-    clicked: false,
+
+function Navbar() {
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
   };
-  handleClick = () => {
-    this.setState({
-      clicked: !this.state.clicked,
-    });
+
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
   };
-  render() {
-    return (
-      <nav className="NavbarItems">
-        <h1 className="navbar-logo"> Austin Partnership's </h1>
-        <div className="menu-icons" onClick={this.handleClick}>
-          <i
-            className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
-          ></i>
+
+  return (
+    <>
+      <nav className='NavbarItems'>
+      <h1 className="navbar-logo"> Austin Partnership's </h1>
+        <div className='menu-icons' onClick={handleClick}>
+          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
-        <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-          {MenuItems.map((item, index) => {
-            return (
-              <li key={index}>
-                <Link className={item.cName} to={item.url}>
-                  <i className={item.icon}> </i> {item.title}
-                </Link>
-              </li>
-            );
-          })}
-          <li>
-            <Link to="/login" className="nav-links">
-              Login <i class="fa-solid fa-caret-down"></i>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className='nav-item'>
+            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+            <i className='fa-solid fa-house-user' />
+              Home
             </Link>
-            {/* {dropdown && <Dropdown />} */}
+          </li>
+          <li
+            className='nav-item'>
+            <Link
+              to='/about'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              <i className='fa-solid fa-circle-info' />
+              About
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link
+              to='/Service'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              <i className='fa-solid fa-briefcase' />
+              Service
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link
+              to='/OurPeople'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              <i className='fa-solid fa-users' />
+              Our People
+            </Link>
+          </li>
+          <li className='nav-links'
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          >
+            <Link
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              <i className='fa-solid fa-address-book' />
+              Login
+            </Link>
+            {dropdown && <Dropdown />}
           </li>
         </ul>
       </nav>
-    );
-  }
+    </>
+  );
 }
 
 export default Navbar;
