@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 // import SuccessLogin from "./SuccessLogin";
-import Homepage from "../ComponentsPages/HomePage";
+// import Homepage from "../ComponentsPages/HomePage";
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import './clientLoginStyle.css';
+import Display from "../display";
 
 
 const ClientLogin = () => {
@@ -34,7 +35,7 @@ const ClientLogin = () => {
   return (
     <>
     {isLoggedIn ? (
-      <Homepage />
+      <Display />
     ) : (
     <>
       <Navbar />
