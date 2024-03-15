@@ -12,6 +12,13 @@ import OurPeople from "./routes/OurPeople";
 // import Portfolio from "./footer/PortFolio";
 // import SuccessLogin from './Pages/SuccessLogin';
 import HomePage from "./ComponentsPages/HomePage";
+import Display from "./display";
+import Team from "./scenes/team";
+import Bar from "./scenes/bar";
+import Pie from "./scenes/pie";
+import Line from "./scenes/line";
+import Contacts from "./scenes/contacts";
+import Invoices from "./scenes/invoices";
 
 
 export default function App() {
@@ -29,6 +36,13 @@ export default function App() {
         <Route path="/ourpeople" element={<OurPeople />} />
         <Route path="/ourpeople" element={<OurPeople />} />
         <Route path="/homepage" element={<HomePage />} />
+        <Route path="/display" element={<Display />} />
+        <Route path="/bar" element={<Bar />} />
+        <Route path="/pie" element={<Pie />} />
+        <Route path="/line" element={<Line />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/invoices" element={<Invoices />} />
       </Routes>
     </div>
   );

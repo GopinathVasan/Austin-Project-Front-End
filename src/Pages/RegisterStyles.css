@@ -1,4 +1,4 @@
- .register-container {
+ /* .register-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +16,7 @@
   }
   
   .signin-form h1{
-      color: rgb(77, 1, 77);
+      color: rgb(0, 0, 0);
       text-align: center;
   }
   
@@ -33,4 +33,4 @@
       cursor: pointer;
       margin-top: 15px;
       margin-bottom: 30px;
-  }
+  } */
