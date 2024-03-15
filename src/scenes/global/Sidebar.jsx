@@ -89,7 +89,7 @@ const Sidebar = () => {
             )}
           </MenuItem>
 
-          {!isCollapsed && (
+          {/* {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
               </Box>
@@ -107,7 +107,7 @@ const Sidebar = () => {
                 </Typography>
               </Box>
             </Box>
-          )}
+          )} */}
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
@@ -201,13 +201,6 @@ const Sidebar = () => {
               title="Line Chart"
               to="/line"
               icon={<TimelineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Geography Chart"
-              to="/geography"
-              icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

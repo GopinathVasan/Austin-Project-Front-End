@@ -226,8 +226,8 @@ const Dashboard = () => {
           backgroundColor={colors.primary[400]}
           p="30px"
         >
-          <Typography variant="h5" fontWeight="600">
-            Campaign
+          <Typography variant="h4" fontWeight="600">
+            Overall Profit
           </Typography>
           <Box
             display="flex"
@@ -235,15 +235,17 @@ const Dashboard = () => {
             alignItems="center"
             mt="25px"
           >
-            <ProgressCircle size="125" />
+            {/* <ProgressCircle size="100" /> */}
             <Typography
               variant="h5"
               color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
+              sx={{ mt: "30px" }}
             >
-              $48,352 revenue generated
+              $45,229 revenue generated
             </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            <Typography variant="h5" sx={{ mt: "20px" }}>579100 Inverted amount </Typography>
+            <Typography variant="h5" sx={{ mt: "20px" }}>599,225 Reinverted amount </Typography>
+            <Typography variant="h5" sx={{ mt: "20px" }}>3.35% Returns</Typography>
           </Box>
         </Box>
         <Box
