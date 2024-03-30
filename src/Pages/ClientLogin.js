@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import SuccessLogin from "./SuccessLogin";
-// import Homepage from "../ComponentsPages/HomePage";
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import './clientLoginStyle.css';
 import Display from "../display";
-
 
 const ClientLogin = () => {
   const [username, setUsername] = useState("");
@@ -17,18 +14,22 @@ const ClientLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/login', {
+      const response = await axios.post('http://127.0.0.1:8000/auth/token', {
         username: username,
         password: password
       });
-      if (response && response.data) {
-        setMessage(response.data.message);
-        setIsLoggedIn(true); // Set isLoggedIn state to true
+      if (response && response.data && response.data.access_token) {
+        setMessage("Login Successful!");
+        setIsLoggedIn(true);
       } else {
-        setMessage('Error: invalid response from server');
+        setMessage('Error: Invalid response from server');
       }
     } catch (error) {
-      setMessage(error.message);
+      if (error.response && error.response.data && error.response.data.detail) {
+        setMessage(error.response.data.detail);
+      } else {
+        setMessage(error.message);
+      }
     }
   };
 
@@ -40,45 +41,41 @@ const ClientLogin = () => {
     <>
       <Navbar />
       <div className="client-login-container">
-        {/* <h2>Welcome to Austin Partnership</h2> */}
-       
-          <form className='login-form' onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label className='login-label' htmlFor="username">Email-ID:</label>
-              <input
-                className='login-input'
-                type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Enter username or email address"
-                required
-              />
-            </div>
+        <form className='login-form' onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label className='login-label' htmlFor="username">Email-ID:</label>
+            <input
+              className='login-input'
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter username or email address"
+              required
+            />
+          </div>
 
-            <div className="form-group">
-              <label className='login-label' htmlFor="password">Password:</label>
-              <input
-                className='login-input'
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password"
-                required
-              />
-            </div>
+          <div className="form-group">
+            <label className='login-label' htmlFor="password">Password:</label>
+            <input
+              className='login-input'
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter password"
+              required
+            />
+          </div>
 
-            <button className='login-btn' type="submit">Sign In</button>
-            {message && <p>{message}</p>}
-          </form>
-       
+          <button className='login-btn' type="submit">Sign In</button>
+          {message && <p>{message}</p>}
+        </form>
       </div>
       <Footer />
     </>
-    )
-  }
-  </>
+    )}
+    </>
   );
 };
 

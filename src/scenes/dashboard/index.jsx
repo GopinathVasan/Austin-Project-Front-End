@@ -152,7 +152,7 @@ const Dashboard = () => {
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $45,229
+                <i class="fa fa-inr"></i>20,229
               </Typography>
             </Box>
             <Box>
@@ -213,7 +213,7 @@ const Dashboard = () => {
                 p="5px 10px"
                 borderRadius="4px"
               >
-               ${transaction.cost}
+               <i class="fa fa-inr"></i> {transaction.cost}
               </Box>
             </Box>
           ))}
@@ -241,10 +241,10 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "30px" }}
             >
-              $45,229 revenue generated
+             <i class="fa fa-inr"></i> 45,229 revenue generated
             </Typography>
-            <Typography variant="h5" sx={{ mt: "20px" }}>579100 Inverted amount </Typography>
-            <Typography variant="h5" sx={{ mt: "20px" }}>599,225 Reinverted amount </Typography>
+            <Typography variant="h5" sx={{ mt: "20px" }}><i class="fa fa-inr"></i> 5,79,100 Inverted amount </Typography>
+            <Typography variant="h5" sx={{ mt: "20px" }}> <i class="fa fa-inr"></i> 5,99,225 Reinverted amount </Typography>
             <Typography variant="h5" sx={{ mt: "20px" }}>3.35% Returns</Typography>
           </Box>
         </Box>
