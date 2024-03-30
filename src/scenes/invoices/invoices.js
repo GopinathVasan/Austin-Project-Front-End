@@ -31,7 +31,7 @@ const Invoices = () => {
       flex: 1,
       renderCell: (params) => (
         <Typography color={colors.greenAccent[500]}>
-          ${params.row.cost}
+          <i class="fa fa-inr"></i> {params.row.cost !== null ? params.row.cost : 0}
         </Typography>
       ),
     },
