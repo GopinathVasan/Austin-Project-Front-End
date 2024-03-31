@@ -25,7 +25,7 @@ const Footer = () => {
       <div className="bottom">
         <div>
           <h4>Project</h4>
-          <a href="/display">Security & Fraud Awareness</a>
+          <a href="/">Security & Fraud Awareness</a>
           <a href="/">Regulatory Disclosures</a>
           <a href="/">Stock portfolio</a>
         </div>

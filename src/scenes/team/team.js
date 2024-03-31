@@ -5,7 +5,6 @@ import { mockDataTeam } from "../../data/mockData";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
-import Header from "../../DashboardC/Header";
 
 const Team = () => {
   const theme = useTheme();
@@ -71,7 +70,7 @@ const Team = () => {
   ];
 
   return (
-    <Box m="20px">
+    <Box>
       {/* <Header title="TEAM" subtitle="Managing the Team Members" /> */}
       <Box
         m="40px 0 0 0"

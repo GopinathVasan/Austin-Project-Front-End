@@ -6,7 +6,7 @@ export const MenuItems = [
   },
   {
     title: "Register",
-    path: "/register",
+    path: "/register1",
     cName:'dropdown-link'
   },
 ];

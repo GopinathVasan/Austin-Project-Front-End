@@ -1,103 +1,52 @@
-// import { useState } from "react";
-// import "./RegisterStyles.css";
-// import FormInput from "../Components/FormInput";
-// import Navbar from "../Components/Navbar";
-// import Footer from "../Components/Footer";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-// const Register = () => {
-//   const [values, setValues] = useState({
-//     username: "",
-//     email: "",
-//     birthday: "",
-//     password: "",
-//     confirmPassword: "",
-//   });
+function UserList() {
+  const [users, setUsers] = useState([]);
 
-//   const inputs = [
-//     {
-//       id: 1,
-//       name: "username",
-//       type: "text",
-//       placeholder: "Username",
-//       errorMessage:
-//         "Username should be 3-16 characters and shouldn't include any special character!",
-//       label: "Username",
-//       pattern: "^[A-Za-z0-9]{3,16}$",
-//       required: true,
-//     },
-//     {
-//       id: 2,
-//       name: "email",
-//       type: "email",
-//       placeholder: "Email",
-//       errorMessage: "It should be a valid email address!",
-//       label: "Email",
-//       required: true,
-//     },
-//     {
-//       id: 3,
-//       name: "birthday",
-//       type: "date",
-//       placeholder: "Birthday",
-//       label: "Birthday",
-//     },
-//     {
-//       id: 4,
-//       name: "password",
-//       type: "password",
-//       placeholder: "Password",
-//       errorMessage:
-//         "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
-//       label: "Password",
-//       pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
-//       required: true,
-//     },
-//     {
-//       id: 5,
-//       name: "confirmPassword",
-//       type: "password",
-//       placeholder: "Confirm Password",
-//       errorMessage: "Passwords don't match!",
-//       label: "Confirm Password",
-//       pattern: values.password,
-//       required: true,
-//     },
-//     {
-//       id: 6,
-//       name: "Phone",
-//       type: "tel",
-//       placeholder: "Phone Number",
-//       errorMessage: "enter correct phone number",
-//       label: "Phone Number",
-//       pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}",
-//       required: true,
-//     },
-//   ];
+  useEffect(() => {
+    async function fetchUsers() {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/default/read_users_users__get');
+        setUsers(response.data);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    }
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//   };
+    fetchUsers();
+  }, []);
 
-//   const onChange = (e) => {
-//     setValues({ ...values, [e.target.name]: e.target.value });
-//   };
-
-//   return (
-//     <><div className="register-container">
-//       <Navbar />
-//       <form className="register-form" onSubmit={handleSubmit}>
-//         <h1>Register</h1>
-//         {inputs.map((input) => (
-//           <FormInput
-//             key={input.id}
-//             {...input}
-//             value={values[input.name]}
-//             onChange={onChange} />
-//         ))}
-//         <button className="register-btn">Submit</button>
-//       </form>
-//     </div><Footer /></>
-//   );
-// };
-
-// export default Register;
+  return (
+    <div>
+      <h1>Users</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Role</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(user => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.email}</td>
+              <td>{user.username}</td>
+              <td>{user.first_name}</td>
+              <td>{user.last_name}</td>
+              <td>{user.role}</td>
+              <td>{user.phone_number}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+export default UserList;

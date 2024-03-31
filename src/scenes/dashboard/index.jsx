@@ -49,25 +49,7 @@ const Dashboard = () => {
         gap="20px"
       >
         {/* ROW 1 */}
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="2700"
-            subtitle="Company Expenses"
-            progress="0.05"
-            increase="-0.5%"
-            icon={
-              <CurrencyRupeeIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
-          />
-        </Box>
+        
         {/* <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
@@ -263,6 +245,25 @@ const Dashboard = () => {
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
           </Box>
+        </Box>
+        <Box
+          gridColumn="span 3"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <StatBox
+            title="2700"
+            subtitle="Company Expenses"
+            progress="0.05"
+            increase="-0.5%"
+            icon={
+              <CurrencyRupeeIcon
+                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+              />
+            }
+          />
         </Box>
       </Box>
     </Box>

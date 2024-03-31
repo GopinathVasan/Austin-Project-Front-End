@@ -6,6 +6,7 @@ import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import './clientLoginStyle.css';
 import Display from "../display";
+import { Link } from "react-router-dom";
 
 
 const ClientLogin = () => {
@@ -68,8 +69,11 @@ const ClientLogin = () => {
                 required
               />
             </div>
+            <Link>Forgot password</Link>
+
 
             <button className='login-btn' type="submit">Sign In</button>
+
             {message && <p>{message}</p>}
           </form>
        
