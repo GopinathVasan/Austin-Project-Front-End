@@ -6,7 +6,7 @@ import './clientLoginStyle.css';
 import Display from "../display";
 
 const ClientLogin = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,7 +15,7 @@ const ClientLogin = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://127.0.0.1:8000/auth/token', {
-        username: username,
+        email: email,
         password: password
       });
       if (response && response.data && response.data.access_token) {
@@ -43,13 +43,13 @@ const ClientLogin = () => {
       <div className="client-login-container">
         <form className='login-form' onSubmit={handleSubmit}>
           <div className="form-group">
-            <label className='login-label' htmlFor="username">Email-ID:</label>
+            <label className='login-label' htmlFor="email">Email-ID:</label>
             <input
               className='login-input'
               type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter username or email address"
               required
             />
