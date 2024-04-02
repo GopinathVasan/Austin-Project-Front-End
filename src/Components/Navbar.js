@@ -72,7 +72,17 @@ function Navbar() {
               Our People
             </Link>
           </li>
-          <li className='nav-links'
+          <li className='nav-item'>
+            <Link
+              to='/clientlogin'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              <i className='fa-solid fa-address-book' />
+              Login
+            </Link>
+          </li>
+          {/* <li className='nav-links'
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           >
@@ -84,7 +94,7 @@ function Navbar() {
               Login
             </Link>
             {dropdown && <Dropdown />}
-          </li>
+          </li> */}
         </ul>
       </nav>
     </>

@@ -1,17 +1,12 @@
- /* .register-container {
+ .register-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 140vh;
-    background-image: url('../assets/6.jpg');
-    background-size: 100%;
-    background-position: center;
-    
   } 
   
   .register-form {
-      background-color: white;
-      padding: 0px 60px;
+      /* background-color: white; */
+      padding: 10px 60px;
       border-radius: 10px;
   }
   
@@ -33,4 +28,7 @@
       cursor: pointer;
       margin-top: 15px;
       margin-bottom: 30px;
-  } */
+  }
+  .register-form h1 {
+    color: rgb(0, 0, 0);
+  }

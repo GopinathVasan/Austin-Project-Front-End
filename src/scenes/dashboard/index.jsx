@@ -49,25 +49,7 @@ const Dashboard = () => {
         gap="20px"
       >
         {/* ROW 1 */}
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="2700"
-            subtitle="Company Expenses"
-            progress="0.05"
-            increase="-0.5%"
-            icon={
-              <CurrencyRupeeIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
-          />
-        </Box>
+        
         {/* <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
@@ -152,7 +134,7 @@ const Dashboard = () => {
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                <i class="fa fa-inr"></i>20,229
+                $45,229
               </Typography>
             </Box>
             <Box>
@@ -213,7 +195,7 @@ const Dashboard = () => {
                 p="5px 10px"
                 borderRadius="4px"
               >
-               <i class="fa fa-inr"></i> {transaction.cost}
+               ${transaction.cost}
               </Box>
             </Box>
           ))}
@@ -241,10 +223,10 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "30px" }}
             >
-             <i class="fa fa-inr"></i> 45,229 revenue generated
+              $45,229 revenue generated
             </Typography>
-            <Typography variant="h5" sx={{ mt: "20px" }}><i class="fa fa-inr"></i> 5,79,100 Inverted amount </Typography>
-            <Typography variant="h5" sx={{ mt: "20px" }}> <i class="fa fa-inr"></i> 5,99,225 Reinverted amount </Typography>
+            <Typography variant="h5" sx={{ mt: "20px" }}>579100 Inverted amount </Typography>
+            <Typography variant="h5" sx={{ mt: "20px" }}>599,225 Reinverted amount </Typography>
             <Typography variant="h5" sx={{ mt: "20px" }}>3.35% Returns</Typography>
           </Box>
         </Box>
@@ -263,6 +245,25 @@ const Dashboard = () => {
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
           </Box>
+        </Box>
+        <Box
+          gridColumn="span 3"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <StatBox
+            title="2700"
+            subtitle="Company Expenses"
+            progress="0.05"
+            increase="-0.5%"
+            icon={
+              <CurrencyRupeeIcon
+                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+              />
+            }
+          />
         </Box>
       </Box>
     </Box>
