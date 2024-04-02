@@ -14,6 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+import axios from 'axios';
 
 
 const Topbar = () => {
@@ -36,6 +38,21 @@ const Topbar = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+  const [logoutMessage, setLogoutMessage] = useState('');
+
+  const handleLogout = async () => {
+    try {
+      // Make a request to the logout endpoint
+      const response = await axios.get('http://127.0.0.1:8000/auth/logout'); // or '/logout1' depending on which endpoint you want to use
+      // Assuming the logout endpoint returns a success message upon successful logout
+      setLogoutMessage(response.data.message); // You may need to adjust this based on the actual response format
+      // Redirect to the login page or perform any other necessary actions
+      window.location.href = '/'; // Redirect to the login page
+    } catch (error) {
+      console.error('Logout failed:', error);
+      // Handle error
+    }
   };
 
 
@@ -101,13 +118,10 @@ const Topbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
-
+            {logoutMessage && <p>{logoutMessage}</p>}
       </Box>
     </Box>
   );
