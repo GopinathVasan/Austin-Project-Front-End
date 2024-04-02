@@ -108,6 +108,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post("https://austin-partnership-back-end.onrender.com/auth/register", values);
+      // const response = await axios.post("http://127.0.0.1:8000/auth/register", values);
       console.log(response.data); // log the response from the API
       setMessage('Registration successful!');
       // Add code to handle success, such as redirecting the user or showing a success message
