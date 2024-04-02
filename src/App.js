@@ -7,18 +7,20 @@ import Contact from "./routes/Contact";
 import Login from "./routes/Login";
 import LoginPage from "./Pages/LoginPage";
 import ClientLogin from "./Pages/ClientLogin";
-import Register from "./Pages/Register";
+import Register from "../src/scenes/register";
 import OurPeople from "./routes/OurPeople";
 // import Portfolio from "./footer/PortFolio";
 // import SuccessLogin from './Pages/SuccessLogin';
 import HomePage from "./ComponentsPages/HomePage";
 import Display from "./display";
-import Team from "./scenes/team";
+import Teamdisplay from "./scenes/team";
 import Bar from "./scenes/bar";
 import Pie from "./scenes/pie";
 import Line from "./scenes/line";
 import Contacts from "./scenes/contacts";
 import Invoices from "./scenes/invoices";
+import Faqdisplay from "./scenes/faq";
+import Calendardisplay from "./scenes/calendar";
 
 
 export default function App() {
@@ -41,8 +43,11 @@ export default function App() {
         <Route path="/pie" element={<Pie />} />
         <Route path="/line" element={<Line />} />
         <Route path="/contacts" element={<Contacts />} />
-        <Route path="/team" element={<Team />} />
+        <Route path="/team" element={<Teamdisplay />} />
         <Route path="/invoices" element={<Invoices />} />
+        <Route path="/faq" element={<Faqdisplay />} />
+        <Route path="/calendar" element={<Calendardisplay />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );

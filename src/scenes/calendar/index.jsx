@@ -1,13 +1,12 @@
 import { Box } from "@mui/material";
-import Header from "../../DashboardC/Header";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "../../theme";
 import { useState } from "react";
 import Topbar from "../global/Topbar";
 import Sidebar from "../global/Sidebar";
-import FAQ from "./faq";
+import Calendar from "./calendar";
 
-const Faqdisplay = () => {
+const Calendardisplay = () => {
     const [theme, colorMode] = useMode();
     const [isSidebar, setIsSidebar] = useState(true);
   
@@ -20,9 +19,8 @@ const Faqdisplay = () => {
             <main className="display-content">
               <Topbar setIsSidebar={setIsSidebar} />
               <Box m="20px">
-              <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
       <Box height="75vh">
-        <FAQ />
+        <Calendar />
       </Box>
     </Box>
             </main>
@@ -31,4 +29,4 @@ const Faqdisplay = () => {
       </ColorModeContext.Provider>
     );
 };
-export default Faqdisplay;
+export default Calendardisplay;
