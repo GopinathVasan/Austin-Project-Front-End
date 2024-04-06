@@ -11,7 +11,7 @@ const LoginP = () => {
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState('');
   const [forgotPasswordPhonenumber, setForgotPasswordPhonenumber] = useState('');
   const [otp, setOtp] = useState('');
-  const [newPassword, setNewPassword] = useState('');
+  const [new_Password, setNewPassword] = useState('');
   const [step, setStep] = useState('login');
   const [message, setMessage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -65,12 +65,15 @@ const LoginP = () => {
         email: forgotPasswordEmail,
         phone_number: forgotPasswordPhonenumber
       });
-      if (response && response.data && response.data.access_token) {
-        setMessage("OTP code generated");
+      console.log('Response from forgot password API:', response.data);
+      if (response && response.data && response.data.message === "OTP code sent to your mobile phone") {
+        // Assuming the response indicates that OTP code is generated successfully
         setStep('otp');
-        setIsLoggedIn(true);        
+        setMessage("OTP generated successfully");
       } else {
-        setMessage('Error: Invalid response from server');
+        // Handle other cases such as server error or user not found
+        console.error('Error in forgot password API:', response.data);
+        // You may set an error message here if needed
       }
     } catch (error) {
       if (error.response && error.response.data && error.response.data.detail) {
@@ -103,10 +106,11 @@ const LoginP = () => {
         phone_number: forgotPasswordPhonenumber,
         otp_code: otp
       });
-      if (response && response.data && response.data.access_token) {
-        setMessage("OTP code verified successfully");
+      console.log('Response from forgot password API:', response.data);
+      if (response && response.data && response.data.message === "OTP code verified successfully") {
+        // setMessage("OTP code verified successfully");
         setStep('resetPassword');
-        setIsLoggedIn(true);
+        // setIsLoggedIn(true);
       } else {
         setMessage('Error: Invalid response from server');
       }
@@ -140,8 +144,8 @@ const LoginP = () => {
         email: forgotPasswordEmail,
         phone_number: forgotPasswordPhonenumber
       });
-      if (response && response.data && response.data.access_token) {
-        setMessage("Password updated successfully");
+      console.log('Response from forgot password API:', response.data);
+      if (response && response.data && response.data.message === "Password updated successfully") {
         setStep('login');
         setIsLoggedIn(true);
         
@@ -215,6 +219,7 @@ const LoginP = () => {
               <input className='login-input' type="tel" placeholder="Phone Number" value={forgotPasswordPhonenumber} onChange={(e) => setForgotPasswordPhonenumber(e.target.value)} />
             </div>
             <button className='login-btn' onClick={handleForgotPassword}>Reset Password</button>
+            {message && <p>{message}</p>}
           </form>
         </div>
       )}
@@ -228,6 +233,7 @@ const LoginP = () => {
               <input className='login-input' type="text" placeholder="Enter OTP" value={otp} onChange={(e) => setOtp(e.target.value)} />
             </div>
             <button className='login-btn' onClick={handleVerifyOTP}>Verify OTP</button>
+            {message && <p>{message}</p>}
           </form>
         </div>
       )}
@@ -238,13 +244,14 @@ const LoginP = () => {
           <form className='login-form'>
             <div className="form-group">
               <label className='login-label' htmlFor="password">New Password:</label>
-              <input className='login-input' type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+              <input className='login-input' type="password" placeholder="New Password" value={new_Password} onChange={(e) => setNewPassword(e.target.value)} />
             </div>
             <div className="form-group">
               <label className='login-label' htmlFor="password">Confirm New Password:</label>
               <input className='login-input' type="password" placeholder="Confirm New Password" />
             </div>
             <button className='login-btn' onClick={handleResetPassword}>Reset Password</button>
+            {message && <p>{message}</p>}
           </form>
         </div>
       )}
