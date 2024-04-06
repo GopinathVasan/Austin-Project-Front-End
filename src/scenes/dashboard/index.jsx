@@ -254,7 +254,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="2700"
+            title="18000"
             subtitle="Company Expenses"
             progress="0.05"
             increase="-0.5%"
