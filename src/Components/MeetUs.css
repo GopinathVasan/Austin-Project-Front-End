@@ -15,6 +15,7 @@
   width: 350px;
   height: 350px;
   gap: 1.5rem;
+  color: #0d1b2a;
 }
 .meetus{
   align-items: center;
@@ -46,7 +47,7 @@
 }
 .people-title {
   font-size: 2.5rem;
-  color: #000000;
+  color: #0d1b2a;
   padding: 40px;
 }
 .people-item{
@@ -66,7 +67,7 @@
   --title-color: #ffffff;
   --background-color:#000000;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-  background-color: #01959a;
+  background-color: #778da9;
   filter: drop-shadow(0 30px 10px #808080);
 }
 .meetus-title{

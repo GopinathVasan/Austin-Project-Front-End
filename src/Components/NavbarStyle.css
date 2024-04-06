@@ -1,5 +1,5 @@
 .NavbarItems {
-  background-color: #fff;
+  background-color: #415a77;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,11 +13,10 @@
   left: 50%;
   transform: translate(-50%);
   z-index: 9999;
-
+  color: #e0e1dd;
 }
 
 .navbar-logo {
-  color: #222;
   font-size: 2rem;
   cursor: pointer;
 }
@@ -32,7 +31,7 @@
 
 .nav-links {
   text-decoration: none;
-  color: #222;
+  color: #e0e1dd;
   font-size: 1.2rem;
   font-weight: 600;
   padding: 0.7rem 1rem;
@@ -44,8 +43,8 @@
 }
 
 .nav-links:hover {
-  background-color: #01959a;
-  color: #fff;
+  background-color: #778da9;
+  color: #0d1b2a;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
 }
