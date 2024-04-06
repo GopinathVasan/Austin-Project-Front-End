@@ -21,6 +21,8 @@ import Contacts from "./scenes/contacts";
 import Invoices from "./scenes/invoices";
 import Faqdisplay from "./scenes/faq";
 import Calendardisplay from "./scenes/calendar";
+import ForgotPasswordForm from "./Pages/ForgotPassword";
+import LoginP from "./Pages/login";
 
 
 export default function App() {
@@ -48,6 +50,8 @@ export default function App() {
         <Route path="/faq" element={<Faqdisplay />} />
         <Route path="/calendar" element={<Calendardisplay />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgotpassword" element={<ForgotPasswordForm />} />
+        <Route path="/loginp" element={<LoginP /> } />
       </Routes>
     </div>
   );

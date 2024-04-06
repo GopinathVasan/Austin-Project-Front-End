@@ -1,13 +1,13 @@
 import React from 'react';
-import LoginPage from '../Pages/LoginPage.js';
 import Footer from '../Components/Footer.js';
 import Navbar from '../Components/Navbar.js';
+import LoginP from '../Pages/login.js';
 
 const Login = () => {
   return (
     <div className="Login">
        <Navbar /> 
-      <LoginPage />
+      <LoginP />
       <Footer />
     </div>
   );
