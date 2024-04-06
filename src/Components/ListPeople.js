@@ -1,7 +1,7 @@
 import P from "../assets/P.jpg";
 import AM from "../assets/AM.jpg";
 import GV from "../assets/GV.jpg";
-import SR from "../assets/SR.jpg";
+import GSV from "../assets/GSV.jpg";
 import V from "../assets/V.jpg";
 
 export const ListPeople = [
@@ -23,22 +23,22 @@ export const ListPeople = [
       url:V,
       name: "Vinith Kumar" ,
       title: "Co-Founder",
-      location: "krishnagiri",
+      location: "Bangalore",
       mail: "vinithkumar@austinpartnership.in",
     },
     {
       url:GV,
       name: "Gopinath Vasan" ,
-      title: "Tech developer",
+      title: "Co-Founder(Tech-Head)",
       location: "krishnagiri",
       mail: "vasangopinath@austinpartnership.in",
     },
     {
-      url:SR,
-      name: "Santhosh R" ,
-      title: "Tech developer",
-      location: "krishnagiri",
-      mail: "santhoshr@austinpartnership.in",
+      url:GSV,
+      name: "Gowthaman S V" ,
+      title: "Tech-developer",
+      location: "Vellore",
+      mail: "gowthamanvimalnathan@austinpartnership.in",
     },
 
 ];    

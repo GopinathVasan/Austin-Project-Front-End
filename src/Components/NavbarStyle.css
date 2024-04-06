@@ -1,5 +1,5 @@
 .NavbarItems {
-  background-color: #415a77;
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,12 +8,12 @@
   width: 95%;
   height: 80px;
   border-radius: 13px;
-  position: fixed;
+  position:absolute;
   top: 20px;
   left: 50%;
   transform: translate(-50%);
   z-index: 9999;
-  color: #e0e1dd;
+  color: #fff;
 }
 
 .navbar-logo {
@@ -31,7 +31,7 @@
 
 .nav-links {
   text-decoration: none;
-  color: #e0e1dd;
+  color: #fff;
   font-size: 1.2rem;
   font-weight: 600;
   padding: 0.7rem 1rem;

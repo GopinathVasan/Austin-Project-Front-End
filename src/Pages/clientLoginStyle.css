@@ -9,9 +9,10 @@
     height: 110vh;
     color: #1E212D;
 }
-.client-login-container h2{
+.client-login-container h1{
     position: absolute;
     top: 130px;
+    color: #ffffff;
 }
 .client-login-container .login-form {
     display: flex;
@@ -42,14 +43,7 @@
   align-items: center;
   margin: 30px 0;
  */
-.client-login-container h1 {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 50px;
-    font-weight: bold;
 
-}
 
 .client-login-container .form-group{
     position: relative;
