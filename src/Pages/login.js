@@ -4,6 +4,7 @@ import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import './clientLoginStyle.css';
 import Display from "../display";
+import { useNavigate } from 'react-router-dom';
 
 const LoginP = () => {
   const [email, setEmail] = useState('');
@@ -15,6 +16,7 @@ const LoginP = () => {
   const [step, setStep] = useState('login');
   const [message, setMessage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const forgotPasswordAPI = 'http://127.0.0.1:8000/forgot/forgot_password';
   const verifyOTPAPI = 'http://127.0.0.1:8000/forgot/verify_otp';
@@ -142,12 +144,13 @@ const LoginP = () => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/forgot/update_password', {
         email: forgotPasswordEmail,
-        phone_number: forgotPasswordPhonenumber
+        phone_number: forgotPasswordPhonenumber,
+        new_password: new_Password // Include new_password in the request body
       });
       console.log('Response from forgot password API:', response.data);
       if (response && response.data && response.data.message === "Password updated successfully") {
-        setStep('login');
-        setIsLoggedIn(true);
+        navigate('/clientlogin');
+        // setIsLoggedIn(true);
         
       } else {
         setMessage('Error: Invalid response from server');
@@ -160,7 +163,7 @@ const LoginP = () => {
       }
     }
   };
-
+  
   return (
     <>
     {isLoggedIn ? (
