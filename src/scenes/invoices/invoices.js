@@ -1,7 +1,7 @@
+import React, { useEffect, useState } from 'react';
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../DashboardC/Header";
 
 const Invoices = () => {
@@ -16,7 +16,7 @@ const Invoices = () => {
       cellClassName: "name-column--cell",
     },
     {
-      field: "phone",
+      field: "phoneNumber",
       headerName: "Phone Number",
       flex: 1,
     },
@@ -31,7 +31,7 @@ const Invoices = () => {
       flex: 1,
       renderCell: (params) => (
         <Typography color={colors.greenAccent[500]}>
-          <i class="fa fa-inr"></i> {params.row.cost !== null ? params.row.cost : 0}
+          <i className="fa fa-inr"></i> {params.value !== null ? params.value : 0}
         </Typography>
       ),
     },
@@ -42,9 +42,20 @@ const Invoices = () => {
     },
   ];
 
+  const [invoices, setInvoices] = useState([]);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/dashboard/invoicebalance')
+      .then(response => response.json())
+      .then(data => {
+        setInvoices(data);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+
   return (
     <Box m="20px">
-      {/* <Header title="INVOICES" subtitle="List of Invoice Balances" /> */}
+      <Header title="INVOICES" subtitle="List of Invoice Balances" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -74,7 +85,7 @@ const Invoices = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
+        <DataGrid checkboxSelection rows={invoices} columns={columns} />
       </Box>
     </Box>
   );

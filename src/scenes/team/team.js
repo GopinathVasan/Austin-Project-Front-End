@@ -5,7 +5,7 @@ import { mockDataTeam } from "../../data/mockData";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
-import Header from "../../DashboardC/Header";
+import React, { useEffect, useState } from 'react';
 
 const Team = () => {
   const theme = useTheme();
@@ -19,14 +19,12 @@ const Team = () => {
       cellClassName: "name-column--cell",
     },
     {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
+      field: "position",
+      headerName: "Position",
+      flex: 1,
     },
     {
-      field: "phone",
+      field: "phoneNumber",
       headerName: "Phone Number",
       flex: 1,
     },
@@ -36,39 +34,29 @@ const Team = () => {
       flex: 1,
     },
     {
-      field: "accessLevel",
-      headerName: "Access Level",
+      field: "totalInvestedAmount",
+      headerName: "Total Invested Amount",
       flex: 1,
-      renderCell: ({ row: { access } }) => {
-        return (
-          <Box
-            width="60%"
-            m="0 auto"
-            p="5px"
-            display="flex"
-            justifyContent="center"
-            backgroundColor={
-              access === "Founder"
-                ? colors.greenAccent[500]
-                : access === "Co-Founder"
-                ? colors.greenAccent[600]
-                : access === "Promoter"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[800]
-            }
-            borderRadius="4px"
-          >
-            {access === "Founder" && <AdminPanelSettingsOutlinedIcon />}
-            {access === "Co-Founder" && <SecurityOutlinedIcon />}
-            {access === "Promoter" && <LockOpenOutlinedIcon />}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {access}
-            </Typography>
-          </Box>
-        );
-      },
+      renderCell: ({ value }) => (
+        // <Typography color={colors.greenAccent[500]}><i class="fa fa-inr"></i>{value}</Typography>
+        <Typography color={colors.greenAccent[500]} sx={{ display: 'flex', alignItems: 'center' }}>
+  <i class="fa fa-inr" style={{ marginRight: '5px' }}></i>{value}
+</Typography>
+
+      ),
     },
   ];
+
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/dashboard/teammembers')
+      .then(response => response.json())
+      .then(data => {
+        setTeamMembers(data);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   return (
     <Box m="20px">
@@ -102,7 +90,7 @@ const Team = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={teamMembers} columns={columns} />
       </Box>
     </Box>
   );
