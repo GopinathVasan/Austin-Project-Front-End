@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 // import SuccessLogin from "./SuccessLogin";
-import Homepage from "../ComponentsPages/HomePage";
+// import Homepage from "../ComponentsPages/HomePage";
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import './clientLoginStyle.css';
+import Display from "../display";
+import { Link } from "react-router-dom";
 
 
 const ClientLogin = () => {
@@ -34,7 +36,7 @@ const ClientLogin = () => {
   return (
     <>
     {isLoggedIn ? (
-      <Homepage />
+      <Display />
     ) : (
     <>
       <Navbar />
@@ -67,8 +69,11 @@ const ClientLogin = () => {
                 required
               />
             </div>
+            <Link>Forgot password</Link>
+
 
             <button className='login-btn' type="submit">Sign In</button>
+
             {message && <p>{message}</p>}
           </form>
        

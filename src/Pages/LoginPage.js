@@ -14,7 +14,7 @@ const LoginPage = () => {
             <Link to="/Clientlogin" className="loginpage-links">
               User Login
             </Link>
-            <Link to="/register" className="loginpage-links">
+            <Link to="/register1" className="loginpage-links">
               Register
             </Link>       
       </div>
