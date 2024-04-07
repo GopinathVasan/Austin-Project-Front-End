@@ -142,9 +142,7 @@ const Register = () => {
                       onChange={onChange}
                     />
                   ))}
-                  <button className="register-btn" type="submit" onClick={() => {
-    alert(message);
-  }}>
+                  <button className="register-btn" type="submit" onClick={() => {alert(message);}}>
                     Submit
                   </button>
                 </form>

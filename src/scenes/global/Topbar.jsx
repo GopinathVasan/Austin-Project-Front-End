@@ -48,7 +48,7 @@ const Topbar = () => {
       // Assuming the logout endpoint returns a success message upon successful logout
       setLogoutMessage(response.data.message); // You may need to adjust this based on the actual response format
       // Redirect to the login page or perform any other necessary actions
-      window.location.href = '/'; // Redirect to the login page
+      window.location.href = 'https://austinpartnership.in/'; // Redirect to the login page
     } catch (error) {
       console.error('Logout failed:', error);
       // Handle error
@@ -121,7 +121,6 @@ const Topbar = () => {
               <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
-            {logoutMessage && <p>{logoutMessage}</p>}
       </Box>
     </Box>
   );
