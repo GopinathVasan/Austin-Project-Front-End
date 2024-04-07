@@ -44,7 +44,7 @@ const Topbar = () => {
   const handleLogout = async () => {
     try {
       // Make a request to the logout endpoint
-      const response = await axios.get('http://127.0.0.1:8000/auth/logout'); // or '/logout1' depending on which endpoint you want to use
+      const response = await axios.get('https://austin-partnership-back-end.onrender.com/auth/logout'); // or '/logout1' depending on which endpoint you want to use
       // Assuming the logout endpoint returns a success message upon successful logout
       setLogoutMessage(response.data.message); // You may need to adjust this based on the actual response format
       // Redirect to the login page or perform any other necessary actions
