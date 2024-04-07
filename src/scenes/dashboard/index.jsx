@@ -11,10 +11,38 @@ import LineChart from "../../DashboardC/LineChart";
 import BarChart from "../../DashboardC/BarChart";
 import StatBox from "../../DashboardC/StatBox";
 import ProgressCircle from "../../DashboardC/ProgressCircle";
+import React, { useEffect, useState } from 'react';
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [transactions, setTransactions] = useState([]);
+  const [profitData, setProfitData] = useState({
+    investedAmount: 0,
+    reinvestedAmount: 0,
+    revenueGenerated: 0,
+    returns: 0,
+    companyExpenses: 0
+  });
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/dashboard/overallprofits')
+      .then(response => response.json())
+      .then(data => {
+        // Assuming there's only one entry returned by the backend
+        setProfitData(data[0]);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/dashboard/investments')
+      .then(response => response.json())
+      .then(data => {
+        setTransactions(data);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   return (
     <Box m="20px">
@@ -50,7 +78,7 @@ const Dashboard = () => {
       >
         {/* ROW 1 */}
         
-        {/* <Box
+        <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -106,8 +134,8 @@ const Dashboard = () => {
               />
             }
           />
-        </Box> */}
-
+        </Box>
+    
         {/* ROW 2 */}
         <Box
           gridColumn="span 8"
@@ -134,7 +162,7 @@ const Dashboard = () => {
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $45,229
+                <i class="fa fa-inr"></i>45,229
               </Typography>
             </Box>
             <Box>
@@ -149,7 +177,7 @@ const Dashboard = () => {
             <LineChart isDashboard={true} />
           </Box>
         </Box>
-        <Box
+        {/* <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
@@ -199,37 +227,48 @@ const Dashboard = () => {
               </Box>
             </Box>
           ))}
-        </Box>
-
-        {/* ROW 3 */}
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          p="30px"
-        >
-          <Typography variant="h4" fontWeight="600">
-            Overall Profit
-          </Typography>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            mt="25px"
-          >
-            {/* <ProgressCircle size="100" /> */}
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "30px" }}
-            >
-              $45,229 revenue generated
+        </Box> */}
+        <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]} overflow="auto">
+      <Box display="flex" justifyContent="space-between" alignItems="center" borderBottom={`4px solid ${colors.primary[500]}`} colors={colors.grey[100]} p="15px">
+        <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+          Recent Transactions
+        </Typography>
+      </Box>
+      {transactions.map((transaction, i) => (
+        <Box key={`${transaction.profileId}-${i}`} display="flex" justifyContent="space-between" alignItems="center" textAlign="left" borderBottom={`4px solid ${colors.primary[500]}`} p="15px">
+          <Box>
+            <Typography color={colors.greenAccent[500]} variant="h5" fontWeight="600">
+              {transaction.profileId}
             </Typography>
-            <Typography variant="h5" sx={{ mt: "20px" }}>579100 Inverted amount </Typography>
-            <Typography variant="h5" sx={{ mt: "20px" }}>599,225 Reinverted amount </Typography>
-            <Typography variant="h5" sx={{ mt: "20px" }}>3.35% Returns</Typography>
+            <Typography color={colors.grey[100]}>
+              {transaction.customerName}
+            </Typography>
+          </Box>
+          <Box color={colors.grey[100]}>
+            {transaction.investedDate}
+          </Box>
+          <Box backgroundColor={colors.greenAccent[500]} p="5px 10px" borderRadius="4px">
+          <i class="fa fa-inr"></i>{transaction.amount}
           </Box>
         </Box>
+      ))}
+    </Box>
+
+        {/* ROW 3 */}
+        <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]} p="30px">
+      <Typography variant="h4" fontWeight="600" padding={0}>
+        Overall Profit
+      </Typography>
+      <Box display="flex" flexDirection="column" alignItems="center" >
+        <Typography variant="h5" color={colors.greenAccent[500]} sx={{ mt: "20px" }}>
+        <i class="fa fa-inr"></i>{profitData.revenueGenerated} revenue generated
+        </Typography>
+        <Typography variant="h5" sx={{ mt: "20px" }}>Invested amount: <i class="fa fa-inr"></i>{profitData.investedAmount}</Typography>
+        <Typography variant="h5" sx={{ mt: "20px" }}>Reinvested amount: <i class="fa fa-inr"></i>{profitData.reinvestedAmount}</Typography>
+        <Typography variant="h5" sx={{ mt: "20px" }}>Returns: {profitData.returns}%</Typography>
+        <Typography variant="h5" sx={{ mt: "20px" }}>Company expenses: <i class="fa fa-inr"></i>{profitData.companyExpenses}</Typography>
+      </Box>
+    </Box>
         <Box
           gridColumn="span 4"
           gridRow="span 2"

@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import Header from "../../DashboardC/Header";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "../../theme";
 import { useState } from "react";
@@ -20,7 +19,6 @@ const Invoicesdisplay = () => {
             <main className="display-content">
               <Topbar setIsSidebar={setIsSidebar} />
               <Box m="20px">
-              <Header title="INVOICES" subtitle="List of Invoice Balances" />
       <Box height="75vh">
         <Invoices />
       </Box>

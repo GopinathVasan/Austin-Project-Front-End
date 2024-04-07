@@ -18,7 +18,7 @@ import Bar from "./scenes/bar";
 import Pie from "./scenes/pie";
 import Line from "./scenes/line";
 import Contacts from "./scenes/contacts";
-import Invoices from "./scenes/invoices";
+import Invoicesdisplay from "./scenes/invoices";
 import Faqdisplay from "./scenes/faq";
 import Calendardisplay from "./scenes/calendar";
 import ForgotPasswordForm from "./Pages/ForgotPassword";
@@ -46,7 +46,7 @@ export default function App() {
         <Route path="/line" element={<Line />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/team" element={<Teamdisplay />} />
-        <Route path="/invoices" element={<Invoices />} />
+        <Route path="/invoices" element={<Invoicesdisplay />} />
         <Route path="/faq" element={<Faqdisplay />} />
         <Route path="/calendar" element={<Calendardisplay />} />
         <Route path="/register" element={<Register />} />

@@ -151,8 +151,12 @@ const ClientLogin = () => {
       });
       console.log('Response from forgot password API:', response.data);
       if (response && response.data && response.data.message === "Password updated successfully") {
-        navigate('/clientlogin');
+        // navigate('/clientlogin');
+        setStep('login');
         // setIsLoggedIn(true);
+        // if (response && response.data && response.data.message === "Password updated successfully") {
+        //   navigate('/clientlogin', { replace: true });
+        // }
         
       } else {
         setMessage('Error: Invalid response from server');
