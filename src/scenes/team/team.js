@@ -50,7 +50,7 @@ const Team = () => {
   const [teamMembers, setTeamMembers] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/dashboard/teammembers')
+    fetch('https://austin-partnership-back-end.onrender.com/dashboard/teammembers')
       .then(response => response.json())
       .then(data => {
         setTeamMembers(data);
