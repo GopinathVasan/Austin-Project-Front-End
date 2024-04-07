@@ -13,15 +13,16 @@ import OurPeople from "./routes/OurPeople";
 // import SuccessLogin from './Pages/SuccessLogin';
 import HomePage from "./ComponentsPages/HomePage";
 import Display from "./display";
+import Teamdisplay from "./scenes/team";
 import Bar from "./scenes/bar";
 import Pie from "./scenes/pie";
 import Line from "./scenes/line";
 import Contacts from "./scenes/contacts";
-import Invoices from "./scenes/invoices";
-import Teamdisplay from "./scenes/team";
+import Invoicesdisplay from "./scenes/invoices";
 import Faqdisplay from "./scenes/faq";
 import Calendardisplay from "./scenes/calendar";
-import UserList from "./Pages/Register";
+import ForgotPasswordForm from "./Pages/ForgotPassword";
+import LoginP from "./Pages/login";
 
 
 export default function App() {
@@ -44,11 +45,12 @@ export default function App() {
         <Route path="/line" element={<Line />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/team" element={<Teamdisplay />} />
-        <Route path="/invoices" element={<Invoices />} />
+        <Route path="/invoices" element={<Invoicesdisplay />} />
         <Route path="/faq" element={<Faqdisplay />} />
         <Route path="/calendar" element={<Calendardisplay />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/register1" element={<UserList />} />
+        <Route path="/forgotpassword" element={<ForgotPasswordForm />} />
+        <Route path="/loginp" element={<LoginP /> } />
       </Routes>
     </div>
   );

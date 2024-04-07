@@ -10,3 +10,4 @@ npm install @nivo/pie
 npm i @nivo/line
 npm install @mui/x-data-grid
 npm install @nivo/legends
+npm install @fullcalendar/react @fullcalendar/daygrid @fullcalendar/timegrid @fullcalendar/interaction @fullcalendar/list

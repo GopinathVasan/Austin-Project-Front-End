@@ -15,7 +15,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="display-app">
+          <div className="div-sidebar">
           <Sidebar isSidebar={isSidebar} />
+          </div>
           <main className="display-content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Dashboard />
