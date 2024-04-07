@@ -121,7 +121,6 @@ const Topbar = () => {
               <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
-            {logoutMessage && <p>{logoutMessage}</p>}
       </Box>
     </Box>
   );
