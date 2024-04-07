@@ -45,7 +45,7 @@ const Invoices = () => {
   const [invoices, setInvoices] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/dashboard/invoicebalance')
+    fetch('https://austin-partnership-back-end.onrender.com/dashboard/invoicebalance')
       .then(response => response.json())
       .then(data => {
         setInvoices(data);

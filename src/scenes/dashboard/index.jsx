@@ -26,7 +26,7 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/dashboard/overallprofits')
+    fetch('https://austin-partnership-back-end.onrender.com/dashboard/overallprofits')
       .then(response => response.json())
       .then(data => {
         // Assuming there's only one entry returned by the backend
@@ -36,7 +36,7 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/dashboard/investments')
+    fetch('https://austin-partnership-back-end.onrender.com/dashboard/investments')
       .then(response => response.json())
       .then(data => {
         setTransactions(data);
