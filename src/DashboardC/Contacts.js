@@ -1,16 +1,18 @@
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../theme";
-import { mockDataContacts } from "../data/mockData";
+import { useEffect, useState } from "react";
+import axios from "axios"; // Import axios for API calls
 import { useTheme } from "@mui/material";
 
 const Contacts = () => {
+  const [contacts, setContacts] = useState([]); // State to hold contact data
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID" },
+    { field: "registerId", headerName: "Registrar ID" }, // Change to "registerId" to match backend
     {
       field: "name",
       headerName: "Name",
@@ -18,20 +20,13 @@ const Contacts = () => {
       cellClassName: "name-column--cell",
     },
     {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-    },
-    {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "email",
+      headerName: "Email",
       flex: 1,
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: "phoneNumber", // Change to "phoneNumber" to match backend
+      headerName: "Phone Number",
       flex: 1,
     },
     {
@@ -39,24 +34,22 @@ const Contacts = () => {
       headerName: "Address",
       flex: 1,
     },
-    {
-      field: "city",
-      headerName: "City",
-      flex: 1,
-    },
-    {
-      field: "zipCode",
-      headerName: "Zip Code",
-      flex: 1,
-    },
   ];
 
+  useEffect(() => {
+    // Fetch contact data from backend when component mounts
+    fetch('http://127.0.0.1:8000/dashboard/contactinformation')
+      .then(response => response.json())
+      .then(data => {
+        setContacts(data); // Set the retrieved contacts in state
+      })
+      .catch(error => {
+        console.error("Error fetching contacts:", error);
+      });
+  }, []); // Empty dependency array ensures this effect runs only once on mount
+
   return (
-     <Box m="20px">
-    {/* <Header
-         title="CONTACTS"
-         subtitle="List of Contacts for Future Reference"
-       /> */}
+    <Box m="20px">
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -90,12 +83,12 @@ const Contacts = () => {
         }}
       >
         <DataGrid
-          rows={mockDataContacts}
+          rows={contacts} // Pass fetched contacts as rows
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
       </Box>
-     </Box>
+    </Box>
   );
 };
 
