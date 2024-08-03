@@ -1,0 +1,41 @@
+.register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } 
+  
+  .register-form {
+      padding: 10px 60px;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      gap: 10px;
+  }
+
+  .register-form > * {
+    flex: 1 1 40%;
+  }
+  
+  .signin-form h1{
+      color: rgb(0, 0, 0);
+      text-align: center;
+  }
+  
+  .register-btn{
+      width: 100%;
+      height: 50px;
+      padding: 10px;
+      border: none;
+      background-color: rebeccapurple;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 27px;
+      margin-bottom: 30px;
+  }
+  .register-form h1 {
+    color: rgb(0, 0, 0);
+  }
