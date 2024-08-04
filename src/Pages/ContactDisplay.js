@@ -10,7 +10,7 @@ const ContactDisplay = () => {
   const colors = tokens(theme.palette.mode);
 
     return (
-      <><Sidebar /><Box component="main" sx={{ flexGrow: 1, p: 3, pt: 10 }}>
+      <><Sidebar /><Box component="main" sx={{ flexGrow: 1, p: 3, pt: 10 }} backgroundColor={theme.palette.background.default}>
           <Box m="20px" sx={{ bgcolor: colors.box }}>
             <Header title="CONTACTS" subtitle="List of Contacts for Future Reference" />
   <Box height="75vh">

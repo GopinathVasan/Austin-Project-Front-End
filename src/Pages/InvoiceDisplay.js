@@ -10,7 +10,7 @@ const InvoicesDisplay = () => {
     const colors = tokens(theme.palette.mode);
 
     return (
-      <><Sidebar /><Box component="main" sx={{ flexGrow: 1, p: 3, pt: 10 }}>
+      <><Sidebar /><Box component="main" sx={{ flexGrow: 1, p: 3, pt: 10 }} backgroundColor={theme.palette.background.default}>
               <Box m="10px" sx={{ bgcolor: colors.box }}>
 <Header title="INVOICES" subtitle="List of Invoice Balances" />
       <Box height="75vh">

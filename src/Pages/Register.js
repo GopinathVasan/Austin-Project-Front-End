@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Box } from "@mui/material";
 import FormInput from "../Components/FormInput";
-import { ColorModeContext, useMode } from "../theme";
 // import axios from "axios";
 import "../css/RegisterStyles.css";
 import Header from "../Components/Header";
 import Sidebar from "../display/Sidebar.js";
+import { tokens } from "../theme.js";
+import { useTheme } from "@mui/material";
 
 const Register = () => {
   const [values, setValues] = useState({
@@ -19,7 +20,8 @@ const Register = () => {
     phone_number: "",
   });
 
-  const [theme, colorMode] = useMode();
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   const [isSidebar, setIsSidebar] = useState(true);
 
   const inputs = [
@@ -121,8 +123,8 @@ const Register = () => {
   };
 
   return (
-    <><Sidebar /><Box component="main" sx={{ flexGrow: 1, p: 3, pt: 10 }}>
-            <Box m="20px">
+    <><Sidebar /><Box component="main" sx={{ flexGrow: 1, p: 3, pt: 10 }} backgroundColor={theme.palette.background.default}>
+            <Box p="20px" backgroundColor={colors.primary[400]}>
             <Header title="Register" subtitle="" />
               <div className="register-container">
                 <form className="register-form" onSubmit={handleSubmit}>

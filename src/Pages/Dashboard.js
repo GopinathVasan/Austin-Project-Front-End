@@ -43,7 +43,7 @@ const Dashboard = () => {
   }, []);
 
     return (
-      <><Sidebar /><Box component="main" sx={{ flexGrow: 1, p: 3, pt: 10 }}>
+      <><Sidebar /><Box component="main" sx={{ flexGrow: 1, p: 3, pt: 10 }} backgroundColor={theme.palette.background.default}>
       <Box>
         <Box className='box' >
         <Box

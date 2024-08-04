@@ -10,7 +10,7 @@ const TeamDisplay = () => {
     const colors = tokens(theme.palette.mode);
 
     return (
-      <><Sidebar /><Box component="main" sx={{ flexGrow: 1, p: 3, pt: 10 }}>
+      <><Sidebar /><Box component="main" sx={{ flexGrow: 1, p: 3, pt: 10 }} backgroundColor={theme.palette.background.default}>
         <Box m="20px">
         <Header title="TEAM" subtitle="Managing the Team Members" />
 <Box height="75vh">
