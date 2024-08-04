@@ -149,6 +149,9 @@ export const themeSettings = (mode) => {
             box: {
               main:colors.primary[500],
             },
+            columnHeaders: {
+              main: "#F0C38E",
+            },
           }
         : {
             // palette values for light mode
@@ -171,6 +174,9 @@ export const themeSettings = (mode) => {
             },
             box: {
               main:colors.primary[800],
+            },
+            columnHeaders: {
+              main: "#F0C38E",
             },
           }),
     },
