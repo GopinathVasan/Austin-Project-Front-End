@@ -1,7 +1,7 @@
 import { ResponsivePieCanvas } from "@nivo/pie";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
-import { mockPieData as data } from "../Data/Mockdata";
+import { mockPieData as data } from "../Data/mockData";
 
 const PieChart = ({ isDashboard = true }) => {
   const theme = useTheme();
