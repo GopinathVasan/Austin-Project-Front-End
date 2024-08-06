@@ -18,9 +18,7 @@ const ClientLogin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate(); // Initialize useNavigate hook
 
-  const forgotPasswordAPI = 'http://127.0.0.1:8000/forgot/forgot_password';
-  const verifyOTPAPI = 'http://127.0.0.1:8000/forgot/verify_otp';
-  const resetPasswordAPI = 'http://127.0.0.1:8000/forgot/update_password';
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,12 +64,12 @@ const ClientLogin = () => {
     e.preventDefault();
     try {
       const response = await axios.post('https://austin-partnership-back-end.onrender.com/forgot/forgot_password', {
-        email: forgotPasswordEmail,
+        email: forgotPasswordEmail,      
         phone_number: forgotPasswordPhonenumber
       });
       console.log('Response from forgot password API:', response.data);
       if (response && response.data && response.data.message === "OTP code sent to your mobile phone") {
-        // Assuming the response indicates that OTP code is generated successfully
+        // Assuming the response indicates that OTP code is generated successfully OTP code sent to your mobile phone
         setStep('otp');
         setMessage("OTP generated successfully");
       } else {
