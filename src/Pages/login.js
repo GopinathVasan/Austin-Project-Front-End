@@ -3,8 +3,9 @@ import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import './clientLoginStyle.css';
-import Display from "../display";
+// import Display from "../display";
 import { useNavigate } from 'react-router-dom';
+import { setToken } from '../utils/auth';
 
 const LoginP = () => {
   const [email, setEmail] = useState('');
@@ -22,27 +23,19 @@ const LoginP = () => {
   const verifyOTPAPI = 'http://127.0.0.1:8000/forgot/verify_otp';
   const resetPasswordAPI = 'http://127.0.0.1:8000/forgot/update_password';
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/auth/token', {
-        email: email,
-        password: password
-      });
-      if (response && response.data && response.data.access_token) {
-        setMessage("Login Successful!");
-        setIsLoggedIn(true);
-      } else {
-        setMessage('Error: Invalid response from server');
-      }
+        const response = await axios.post('http://127.0.0.1:8000/auth/token', {
+          email: email,
+          password: password
+        });
+        setToken(response.data.access_token);
+        navigate('/dashboard');
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.detail) {
-        setMessage(error.response.data.detail);
-      } else {
-        setMessage(error.message);
-      }
+        console.error('Login failed:', error);
     }
-  };
+};
 
   // const handleForgotPassword = async () => {
   //   console.log('Forgot password button clicked');

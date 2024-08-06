@@ -59,4 +59,13 @@
   .bottom div {
     width: 50%;
   }
+
+  .bottom a {
+    display: none;
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: column;
+  }
 }

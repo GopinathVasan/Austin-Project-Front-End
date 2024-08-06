@@ -6,9 +6,9 @@ import LoginP from '../Pages/login.js';
 const Login = () => {
   return (
     <div className="Login">
-       <Navbar /> 
+       {/* <Navbar /> */}
       <LoginP />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
