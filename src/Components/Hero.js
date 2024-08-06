@@ -4,7 +4,7 @@ function Hero(props) {
   return (
     <>
       <div className={props.cName}>
-        <img alt="HeroImg" src={props.heroImg} />
+        <img alt="HeroImg" src={props.heroImg}  />
         <div className="hero-text">
           <h1>{props.title}</h1>
           <p>{props.text}</p>
@@ -17,4 +17,4 @@ function Hero(props) {
   );
 }
 
-export default Hero;
+export default Hero;

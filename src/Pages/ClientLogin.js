@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import './clientLoginStyle.css';
-import Display from "../display";
+// import Display from "../display";
 import { useNavigate } from 'react-router-dom';
 
 const ClientLogin = () => {

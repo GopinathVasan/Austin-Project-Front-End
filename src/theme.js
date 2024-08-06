@@ -78,7 +78,7 @@ export const tokens = (mode) => ({
           200: "#080b12",
           300: "#0c101b",
           400: "#f2f0f0", // manually changed
-          500: "#141b2d",
+          500: "#141B2D",
           600: "#1F2A40",
           700: "#727681",
           800: "#a1a4ab",
@@ -130,7 +130,7 @@ export const themeSettings = (mode) => {
         ? {
             // palette values for dark mode
             primary: {
-              main: colors.primary[500],
+              main: colors.primary[100],
             },
             secondary: {
               main: colors.greenAccent[500],
@@ -143,11 +143,20 @@ export const themeSettings = (mode) => {
             background: {
               default: colors.primary[500],
             },
+            appBar: {
+              main: colors.primary[600], // Change this to your desired AppBar color in dark mode
+            },
+            box: {
+              main:colors.primary[500],
+            },
+            columnHeaders: {
+              main: "#F0C38E",
+            },
           }
         : {
             // palette values for light mode
             primary: {
-              main: colors.primary[100],
+              main: colors.primary[200],
             },
             secondary: {
               main: colors.greenAccent[500],
@@ -160,6 +169,15 @@ export const themeSettings = (mode) => {
             background: {
               default: "#fcfcfc",
             },
+            appBar: {
+              main: colors.primary[900], // Change this to your desired AppBar color in light mode
+            },
+            box: {
+              main:colors.primary[800],
+            },
+            columnHeaders: {
+              main: "#F0C38E",
+            },
           }),
     },
     typography: {
@@ -168,26 +186,32 @@ export const themeSettings = (mode) => {
       h1: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 40,
+        color:colors.grey[100],
       },
       h2: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 32,
+        color:colors.grey[100],
       },
       h3: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 24,
+        color:colors.grey[100],
       },
       h4: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 20,
+        color:colors.grey[100],
       },
       h5: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 16,
+        color:colors.grey[100],
       },
       h6: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 14,
+        color:colors.grey[100],
       },
     },
   };
