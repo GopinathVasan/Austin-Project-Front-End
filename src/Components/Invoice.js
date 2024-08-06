@@ -1,33 +1,33 @@
-import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import React, { useEffect, useState } from 'react';
+import { Box, Typography, useTheme } from "@mui/material";
+import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../theme";
-import { Box , Typography , useTheme } from '@mui/material';
-import { mockDataInvoices } from '../Data/Mockdata';
+import Header from "../Components/Header";
 
-export default function Invoice() {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+const Invoices = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   const columns = [
     { field: "id", headerName: "ID" },
     {
       field: "name",
-      headerName: "Name", width: 125, minWidth: 150, 
+      headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "phone",
-      headerName: "Phone Number",width: 125, minWidth: 150, 
+      field: "phoneNumber",
+      headerName: "Phone Number",
       flex: 1,
     },
     {
       field: "email",
-      headerName: "Email",width: 125, minWidth: 150, 
+      headerName: "Email",
       flex: 1,
     },
     {
       field: "cost",
-      headerName: "Cost",width: 125, minWidth: 150, 
+      headerName: "Cost",
       flex: 1,
       renderCell: (params) => (
         <Typography color={colors.greenAccent[500]}>
@@ -37,14 +37,25 @@ export default function Invoice() {
     },
     {
       field: "date",
-      headerName: "Date",width: 125, minWidth: 150, 
+      headerName: "Date",
       flex: 1,
     },
   ];
 
+  const [invoices, setInvoices] = useState([]);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/dashboard/invoicebalance')
+      .then(response => response.json())
+      .then(data => {
+        setInvoices(data);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   return (
-<Box
+    <Box m="20px">
+      <Box
         m="40px 0 0 0"
         height="75vh"
         sx={{
@@ -59,7 +70,6 @@ export default function Invoice() {
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
-            // backgroundColor: theme.palette.columnHeaders.main,
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
@@ -74,7 +84,10 @@ export default function Invoice() {
           },
         }}
       >
-      <DataGrid checkboxSelection disableRowSelectionOnClick rows={mockDataInvoices} columns={columns} />
+        <DataGrid checkboxSelection rows={invoices} columns={columns} />
       </Box>
+    </Box>
   );
-}
+};
+
+export default Invoices;

@@ -1,8 +1,11 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../theme";
-import { mockDataTeam } from "../Data/Mockdata";
-import React from 'react';
+import { mockDataTeam } from "../Data/mockData";
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
+import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
+import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
+import React, { useEffect, useState } from 'react';
 
 const Team = () => {
   const theme = useTheme();
@@ -12,28 +15,28 @@ const Team = () => {
     {
       field: "name",
       headerName: "Name",
-      flex: 1,width: 125, minWidth: 150, 
+      flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "access",
+      field: "position",
       headerName: "Position",
-      flex: 1,width: 125, minWidth: 150, 
+      flex: 1,
     },
     {
-      field: "phone",
+      field: "phoneNumber",
       headerName: "Phone Number",
-      flex: 1,width: 125, minWidth: 150, 
+      flex: 1,
     },
     {
       field: "email",
       headerName: "Email",
-      flex: 1,width: 125, minWidth: 150,
+      flex: 1,
     },
     {
-      field: "age",
-      headerName: "AGE",
-      flex: 1,width: 125, minWidth: 150, 
+      field: "totalInvestedAmount",
+      headerName: "Total Invested Amount",
+      flex: 1,
       renderCell: ({ value }) => (
         // <Typography color={colors.greenAccent[500]}><i class="fa fa-inr"></i>{value}</Typography>
         <Typography color={colors.greenAccent[500]} sx={{ display: 'flex', alignItems: 'center' }}>
@@ -44,8 +47,19 @@ const Team = () => {
     },
   ];
 
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/dashboard/teammembers')
+      .then(response => response.json())
+      .then(data => {
+        setTeamMembers(data);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+
   return (
-    <Box>
+    <Box m="20px">
       {/* <Header title="TEAM" subtitle="Managing the Team Members" /> */}
       <Box
         m="40px 0 0 0"
@@ -62,7 +76,6 @@ const Team = () => {
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
-            // backgroundColor: theme.palette.columnHeaders.main,
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
@@ -77,7 +90,7 @@ const Team = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={teamMembers} columns={columns} />
       </Box>
     </Box>
   );
