@@ -1,6 +1,8 @@
 {
   "name": "react",
   "version": "1.0.0",
+  "private": true,
+  "homepage": "https://GopinathVasan.github.io/Austin-Project-Front-End",
   "description": "",
   "keywords": [],
   "main": "src/index.tsx",
