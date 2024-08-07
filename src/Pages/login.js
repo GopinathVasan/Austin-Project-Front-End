@@ -19,14 +19,16 @@ const LoginP = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate(); // Initialize useNavigate hook
 
-  const forgotPasswordAPI = 'http://127.0.0.1:8000/forgot/forgot_password';
-  const verifyOTPAPI = 'http://127.0.0.1:8000/forgot/verify_otp';
-  const resetPasswordAPI = 'http://127.0.0.1:8000/forgot/update_password';
+  // const forgotPasswordAPI = 'http://127.0.0.1:8000/forgot/forgot_password';
+  // const verifyOTPAPI = 'http://127.0.0.1:8000/forgot/verify_otp';
+  // const resetPasswordAPI = 'http://127.0.0.1:8000/forgot/update_password';
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        const response = await axios.post('http://127.0.0.1:8000/auth/token', {
+        const response = await axios.post('http://127.0.0.1:8000/auth/token',
+        // const response = await axios.post('https://austin-partnership-back-end.onrender.com/auth/token',  
+        {
           email: email,
           password: password
         });
@@ -56,7 +58,9 @@ const LoginP = () => {
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/forgot/forgot_password', {
+      const response = await axios.post('http://127.0.0.1:8000/forgot/forgot_password', 
+      // const response = await axios.post('https://austin-partnership-back-end.onrender.com/forgot/forgot_password',
+        {
         email: forgotPasswordEmail,
         phone_number: forgotPasswordPhonenumber
       });
@@ -97,7 +101,9 @@ const LoginP = () => {
   const handleVerifyOTP = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/forgot/verify_otp', {
+      const response = await axios.post('http://127.0.0.1:8000/forgot/verify_otp',
+      // const response = await axios.post('https://austin-partnership-back-end.onrender.com/forgot/verify_otp',
+        {
         phone_number: forgotPasswordPhonenumber,
         otp_code: otp
       });
@@ -135,7 +141,9 @@ const LoginP = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/forgot/update_password', {
+      const response = await axios.post('http://127.0.0.1:8000/forgot/update_password',
+      // const response = await axios.post('https://austin-partnership-back-end.onrender.com/forgot/update_password',
+        {
         email: forgotPasswordEmail,
         phone_number: forgotPasswordPhonenumber,
         new_password: new_Password // Include new_password in the request body
