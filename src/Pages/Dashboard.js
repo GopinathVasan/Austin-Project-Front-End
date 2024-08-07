@@ -5,7 +5,7 @@ import '../css/DisplayStyles.css';
 import LineChart from '../chart/LineChart';
 import { tokens } from "../theme.js";
 import { useTheme } from "@mui/material";
-import {mockTransactions} from '../Data/mockData.js';
+import {mockTransactions} from '../data/mockData.js';
 import BarChart from '../chart/BarChart.js';
 import Sidebar from "../display/Sidebar.js";
 

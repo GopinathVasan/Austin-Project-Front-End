@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../theme";
-import { mockDataContacts } from "../Data/mockData";
+import { mockDataContacts } from "../data/mockData";
 import { useEffect, useState } from "react";
 import axios from "axios"; // Import axios for API calls
 import { useTheme } from "@mui/material";
