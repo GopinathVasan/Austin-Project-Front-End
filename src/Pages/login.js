@@ -3,11 +3,16 @@ import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import './clientLoginStyle.css';
-// import Display from "../display";
 import { useNavigate } from 'react-router-dom';
 import { setToken } from '../utils/auth';
+import { API_URLS, API_URL } from '../config/apiConfig';
+
+// Set this to true for local testing, false for production
+const testing = true; // or false
 
 const LoginP = () => {
+  const api = testing ? API_URLS : API_URL;
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState('');
@@ -17,27 +22,21 @@ const LoginP = () => {
   const [step, setStep] = useState('login');
   const [message, setMessage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate hook
-
-  // const forgotPasswordAPI = 'http://127.0.0.1:8000/forgot/forgot_password';
-  // const verifyOTPAPI = 'http://127.0.0.1:8000/forgot/verify_otp';
-  // const resetPasswordAPI = 'http://127.0.0.1:8000/forgot/update_password';
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        const response = await axios.post('http://127.0.0.1:8000/auth/token',
-        // const response = await axios.post('https://austin-partnership-back-end.onrender.com/auth/token',  
-        {
-          email: email,
-          password: password
-        });
-        setToken(response.data.access_token);
-        navigate('/dashboard');
+      const response = await axios.post(api.authToken, {
+        email: email,
+        password: password
+      });
+      setToken(response.data.access_token);
+      navigate('/dashboard');
     } catch (error) {
-        console.error('Login failed:', error);
+      console.error('Login failed:', error);
     }
-};
+  };
 
   // const handleForgotPassword = async () => {
   //   console.log('Forgot password button clicked');
@@ -58,9 +57,7 @@ const LoginP = () => {
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/forgot/forgot_password', 
-      // const response = await axios.post('https://austin-partnership-back-end.onrender.com/forgot/forgot_password',
-        {
+      const response = await axios.post(api.forgotPassword, {
         email: forgotPasswordEmail,
         phone_number: forgotPasswordPhonenumber
       });
@@ -101,9 +98,7 @@ const LoginP = () => {
   const handleVerifyOTP = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/forgot/verify_otp',
-      // const response = await axios.post('https://austin-partnership-back-end.onrender.com/forgot/verify_otp',
-        {
+      const response = await axios.post(api.verifyOTP, {
         phone_number: forgotPasswordPhonenumber,
         otp_code: otp
       });
@@ -141,9 +136,7 @@ const LoginP = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/forgot/update_password',
-      // const response = await axios.post('https://austin-partnership-back-end.onrender.com/forgot/update_password',
-        {
+      const response = await axios.post(api.updatePassword, {
         email: forgotPasswordEmail,
         phone_number: forgotPasswordPhonenumber,
         new_password: new_Password // Include new_password in the request body
@@ -164,105 +157,105 @@ const LoginP = () => {
       }
     }
   };
-  
+
   return (
     <>
-    {isLoggedIn ? (
-      <Display />
-    ) : (
-    <>
-      <Navbar />
-    <div>
-      {step === 'login' && (
-        <div className="client-login-container">
-        <h1>Login</h1>
-        <form className='login-form' onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label className='login-label' htmlFor="email">Email-ID:</label>
-            <input
-              className='login-input'
-              type="text"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter username or email address"
-              required
-            />
+      {isLoggedIn ? (
+        <Display />
+      ) : (
+        <>
+          <Navbar />
+          <div>
+            {step === 'login' && (
+              <div className="client-login-container">
+                <h1>Login</h1>
+                <form className='login-form' onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label className='login-label' htmlFor="email">Email-ID:</label>
+                    <input
+                      className='login-input'
+                      type="text"
+                      id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter username or email address"
+                      required
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className='login-label' htmlFor="password">Password:</label>
+                    <input
+                      className='login-input'
+                      type="password"
+                      id="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter password"
+                      required
+                    />
+                  </div>
+                  
+                  <button className='login-btn' type="submit">Sign In</button>
+                  <a className="forgot-password" onClick={() => setStep('forgotPassword')}>Forgot password?</a>
+                  {message && <p>{message}</p>}
+                </form>
+              </div>
+            )}
+
+            {step === 'forgotPassword' && (
+              <div className="client-login-container">
+                <h1>Forgot Password</h1>
+                <form className='login-form'>
+                  <div className="form-group">
+                    <label className='login-label' htmlFor="email">Email-ID:</label>
+                    <input className='login-input' type="email" placeholder="Email" value={forgotPasswordEmail} onChange={(e) => setForgotPasswordEmail(e.target.value)} />
+                  </div>
+                  <div className="form-group">
+                    <label className='login-label' htmlFor="phonenumber">Phone Number:</label>
+                    <input className='login-input' type="tel" placeholder="Phone Number" value={forgotPasswordPhonenumber} onChange={(e) => setForgotPasswordPhonenumber(e.target.value)} />
+                  </div>
+                  <button className='login-btn' onClick={handleForgotPassword}>Reset Password</button>
+                  {message && <p>{message}</p>}
+                </form>
+              </div>
+            )}
+
+            {step === 'otp' && (
+              <div className="client-login-container">
+                <h1>OTP Verification</h1>
+                <form className='login-form'>
+                  <div className="form-group">
+                    <label className='login-label' htmlFor="email">Enter OTP:</label>
+                    <input className='login-input' type="text" placeholder="Enter OTP" value={otp} onChange={(e) => setOtp(e.target.value)} />
+                  </div>
+                  <button className='login-btn' onClick={handleVerifyOTP}>Verify OTP</button>
+                  {message && <p>{message}</p>}
+                </form>
+              </div>
+            )}
+
+            {step === 'resetPassword' && (
+              <div className="client-login-container">
+                <h1>Reset Password</h1>
+                <form className='login-form'>
+                  <div className="form-group">
+                    <label className='login-label' htmlFor="password">New Password:</label>
+                    <input className='login-input' type="password" placeholder="New Password" value={new_Password} onChange={(e) => setNewPassword(e.target.value)} />
+                  </div>
+                  <div className="form-group">
+                    <label className='login-label' htmlFor="password">Confirm New Password:</label>
+                    <input className='login-input' type="password" placeholder="Confirm New Password" />
+                  </div>
+                  <button className='login-btn' onClick={handleResetPassword}>Reset Password</button>
+                  {message && <p>{message}</p>}
+                </form>
+              </div>
+            )}
           </div>
-
-          <div className="form-group">
-            <label className='login-label' htmlFor="password">Password:</label>
-            <input
-              className='login-input'
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter password"
-              required
-            />
-          </div>
-          
-          <button className='login-btn' type="submit">Sign In</button>
-          <a className="forgot-password" onClick={() => setStep('forgotPassword')}>Forgot password?</a>
-          {message && <p>{message}</p>}
-        </form>
-      </div>
+          <Footer />
+        </>
       )}
-
-      {step === 'forgotPassword' && (
-        <div className="client-login-container">
-          <h1>Forgot Password</h1>
-          <form className='login-form'>
-            <div className="form-group">
-              <label className='login-label' htmlFor="email">Email-ID:</label>
-              <input className='login-input' type="email" placeholder="Email" value={forgotPasswordEmail} onChange={(e) => setForgotPasswordEmail(e.target.value)} />
-            </div>
-            <div className="form-group">
-              <label className='login-label' htmlFor="phonenumber">Phone Number:</label>
-              <input className='login-input' type="tel" placeholder="Phone Number" value={forgotPasswordPhonenumber} onChange={(e) => setForgotPasswordPhonenumber(e.target.value)} />
-            </div>
-            <button className='login-btn' onClick={handleForgotPassword}>Reset Password</button>
-            {message && <p>{message}</p>}
-          </form>
-        </div>
-      )}
-
-      {step === 'otp' && (
-        <div className="client-login-container">
-          <h1>OTP Verification</h1>
-          <form className='login-form'>
-            <div className="form-group">
-              <label className='login-label' htmlFor="email">Enter OTP:</label>
-              <input className='login-input' type="text" placeholder="Enter OTP" value={otp} onChange={(e) => setOtp(e.target.value)} />
-            </div>
-            <button className='login-btn' onClick={handleVerifyOTP}>Verify OTP</button>
-            {message && <p>{message}</p>}
-          </form>
-        </div>
-      )}
-
-      {step === 'resetPassword' && (
-        <div className="client-login-container">
-          <h1>Reset Password</h1>
-          <form className='login-form'>
-            <div className="form-group">
-              <label className='login-label' htmlFor="password">New Password:</label>
-              <input className='login-input' type="password" placeholder="New Password" value={new_Password} onChange={(e) => setNewPassword(e.target.value)} />
-            </div>
-            <div className="form-group">
-              <label className='login-label' htmlFor="password">Confirm New Password:</label>
-              <input className='login-input' type="password" placeholder="Confirm New Password" />
-            </div>
-            <button className='login-btn' onClick={handleResetPassword}>Reset Password</button>
-            {message && <p>{message}</p>}
-          </form>
-        </div>
-      )}
-    </div>
-    <Footer />
-    </>
-    )}
     </>
   );
 };
